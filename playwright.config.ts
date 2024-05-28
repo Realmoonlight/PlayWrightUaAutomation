@@ -34,9 +34,9 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: { ...devices['Desktop Chrome']}, 
     },
-
+    // (headless: false )- to see slow show on board
     // {
     //   name: 'firefox',
     //   use: { ...devices['Desktop Firefox'] },
