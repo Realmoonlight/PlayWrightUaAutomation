@@ -1,4 +1,9 @@
 import { defineConfig, devices } from '@playwright/test';
+import dotenv from "dotenv"
+dotenv.config({
+  path: './env/.env${process.env.ENV}'
+})
+
 
 /**
  * Read environment variables from file.
@@ -12,6 +17,9 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './tests',
   /* Run tests in files in parallel */
+
+  fullyParallel: true,
+
   fullyParallel: false,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
@@ -24,7 +32,16 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
+
     // baseURL: 'http://127.0.0.1:3000',
+
+
+
+    //baseURL: process.env.BASEURL || 'http://127.0.0.1:3000',
+
+    // baseURL: 'http://127.0.0.1:3000',
+
+
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
@@ -37,6 +54,20 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome']}, 
     },
     // (headless: false )- to see slow show on board
+
+
+      use: { ...devices['Desktop Chrome'] },
+    },
+
+
+      use: { ...devices['Desktop Chrome']}, 
+    },
+    // (headless: false )- to see slow show on board
+
+      use: { ...devices['Desktop Chrome'] },
+    },
+
+
     // {
     //   name: 'firefox',
     //   use: { ...devices['Desktop Firefox'] },

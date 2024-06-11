@@ -45,6 +45,7 @@ export class DatePicker {
   randomYearNumber = _.random(1, 50);
   date = _.random(1, 30);
   dateUpdate = num => (num < 10)? '0' + num : num;
+
   public async dateFromToday() {
     let obj = {
       Jan: "01",
