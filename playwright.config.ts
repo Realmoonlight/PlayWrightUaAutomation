@@ -4,6 +4,7 @@ dotenv.config({
   path: './env/.env${process.env.ENV}'
 })
 
+
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -16,7 +17,9 @@ dotenv.config({
 export default defineConfig({
   testDir: './tests',
   /* Run tests in files in parallel */
+
   fullyParallel: true,
+
   fullyParallel: false,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
@@ -30,9 +33,14 @@ export default defineConfig({
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
 
+    // baseURL: 'http://127.0.0.1:3000',
+
+
+
     //baseURL: process.env.BASEURL || 'http://127.0.0.1:3000',
 
     // baseURL: 'http://127.0.0.1:3000',
+
 
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
@@ -43,6 +51,10 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
+      use: { ...devices['Desktop Chrome']}, 
+    },
+    // (headless: false )- to see slow show on board
+
 
       use: { ...devices['Desktop Chrome'] },
     },

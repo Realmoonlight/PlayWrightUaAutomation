@@ -1,4 +1,5 @@
 
+
 import { test as it } from "@playwright/test";
 /*
 it.beforeAll(() => {
@@ -21,6 +22,7 @@ it.describe("FORM PAGE", () => {
   });
   it("Test2", () => {
 
+
 import { test } from "@playwright/test";
 
 /*test.describe("FORM PAGE", () => {
@@ -41,13 +43,13 @@ import { test } from "@playwright/test";
     console.log("test1");
   });
 
+  test("Test2", () => {
+
     console.log("test2");
   });
 });
 */
 
-// DRY
-//dump test
 
 it.describe("FORM PAGE TYPE", () => {
   it("Fill all fields", async ({ page }) => {
