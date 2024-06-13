@@ -1,8 +1,8 @@
 import { defineConfig, devices } from '@playwright/test';
-import dotenv from "dotenv"
-dotenv.config({
-  path: './env/.env${process.env.ENV}'
-})
+// import dotenv from "dotenv"
+// dotenv.config({
+//   path: './env/.env${process.env.ENV}'
+// })
 
 
 /**
@@ -18,7 +18,6 @@ export default defineConfig({
   testDir: './tests',
   /* Run tests in files in parallel */
 
-  fullyParallel: true,
 
   fullyParallel: false,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -51,21 +50,10 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
+      
       use: { ...devices['Desktop Chrome']}, 
     },
     // (headless: false )- to see slow show on board
-
-
-      use: { ...devices['Desktop Chrome'] },
-    },
-
-
-      use: { ...devices['Desktop Chrome']}, 
-    },
-    // (headless: false )- to see slow show on board
-
-      use: { ...devices['Desktop Chrome'] },
-    },
 
 
     // {
