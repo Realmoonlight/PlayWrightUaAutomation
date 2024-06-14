@@ -1,5 +1,5 @@
 import { test as it } from "@playwright/test";
-import { Drag_and_Drop } from "../../page_object/Drag_and_drop";
+import { Drag_and_Drop } from "../../page_object/LamberTest/Drag_and_drop";
 
 it.describe("DRAG AND DROP", () => {
   it("drag and drop", async ({ page }) => {
