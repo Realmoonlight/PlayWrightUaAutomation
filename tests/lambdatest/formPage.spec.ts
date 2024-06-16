@@ -78,8 +78,8 @@ it.describe("FORM PAGE TYPE", () => {
 });
 
 
-test.describe("FORM PAGE TYPE", () => {
-    test("fill all fields", async ({page}) => {
+it.describe("FORM PAGE TYPE", () => {
+    it("fill all fields", async ({page}) => {
         await page.goto("https://www.lambdatest.com/selenium-playground/input-form-demo");
         await page.locator('#name').fill('TK');
         await page.locator('[class="w-full border border-gray-90 text-size-14 rounded mt-10 px-10 py-5"][type="email"]')

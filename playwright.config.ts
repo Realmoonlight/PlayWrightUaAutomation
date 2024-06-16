@@ -48,13 +48,31 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
+    { name: 'setup', testMatch: /.*\.setup\.ts/ },
     {
       name: 'chromium',
       
-      use: { ...devices['Desktop Chrome']}, 
+      use: {
+        ...devices["Desktop Chrome"],
+        // headless: true,
+        storageState: "./.auth/user.json",
+      },
+      dependencies: ["setup"],
     },
+    { name: 'setup1', testMatch: /.*\.setup1\.ts/ },
+    {
+      name: 'chromium',
+      
+      use: {
+        ...devices["Desktop Chrome"],
+        // headless: true,
+        storageState: "./.auth/userPASV.json",
+      },
+      dependencies: ["setup1"],
+    },
+  
     // (headless: false )- to see slow show on board
-
+    
 
     // {
     //   name: 'firefox',
@@ -86,6 +104,8 @@ export default defineConfig({
     //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     // },
   ],
+
+
 
   /* Run your local dev server before starting the tests */
   // webServer: {
