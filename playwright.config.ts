@@ -54,7 +54,7 @@ export default defineConfig({
       
       use: {
         ...devices["Desktop Chrome"],
-        // headless: true,
+        headless: true,
         storageState: "./.auth/user.json",
       },
       dependencies: ["setup"],
@@ -65,7 +65,7 @@ export default defineConfig({
       
       use: {
         ...devices["Desktop Chrome"],
-        // headless: true,
+        headless: true,
         storageState: "./.auth/userPASV.json",
       },
       dependencies: ["setup1"],

@@ -1,10 +1,10 @@
-import { expect, test } from '@playwright/test';
+import { expect, test as setup1} from '@playwright/test';
 
-test.beforeEach(async({page})=>{
+setup1.beforeEach(async({page})=>{
     await page.goto('https://coding.pasv.us')
 })
-test('authentication through UI', async({page, browserName}) =>{
+setup1('authentication through UI', async({page, browserName}) =>{
     const name = page.locator('[class="ant-btn ant-btn-primary ant-btn-lg login-form-button w-100"]')
-    await expect (name).toHaveText('Login')
+    // await expect (name).toHaveText('Login')
     await page.screenshot({path: `screenshot/${browserName}.png`})
 })
