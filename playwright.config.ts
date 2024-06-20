@@ -44,9 +44,7 @@ export default defineConfig({
     timeout: 5000,
   },
 
-  // testMatch: 'test.list.ts',
-
-
+  // testMatch: 'test.list.ts', //activate list in folder
 
   /* Configure projects for major browsers */
   projects: [
@@ -75,7 +73,7 @@ export default defineConfig({
     
 
   
-    // (headless: false )- to see slow show on board
+    // (headless: false ) //- to see slow show on board
     
 
     // {
