@@ -1,5 +1,5 @@
 import {test} from '@playwright/test'
-import { request } from 'http'
+
 
 test('intercept', async ({page}) => {
     await page.route('**\/*.{png, jpg,jpeg, svg}', (body) => {
