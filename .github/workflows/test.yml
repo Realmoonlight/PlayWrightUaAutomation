@@ -1,5 +1,4 @@
 name: Playwright tests
-
 on:
   push:
     branches: [develop, master]
