@@ -1,0 +1,68 @@
+name: testDemo
+
+on:
+  pull_request:
+    types:
+      - opened
+      - closed
+    branches:
+      - master
+      - develop
+      - feat/*
+      - bugfix/*
+      - hotfix/*
+      - release/*
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+      - develop
+      - feat/*
+      - bugfix/*
+      - hotfix/*
+      - release/*
+    paths-ignore:
+      - "**.md"
+      - "**.yml"
+      - "**.yaml"
+      - "**.json"
+      - "**.sh"
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  start_project:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "18"
+      - name: Install dependencies
+        run: npm i --force
+      - name: Install Playwright
+        run: npx playwright install --with-deps
+      - name: Wait for localhost
+        run: |
+          npm run start &
+          until $(curl --output /dev/null --silent --head --fail http://localhost:4200); do
+            echo "Waiting for localhost to be available..."
+            sleep 5
+          done
+      - name: Run tests
+          - 4200:4200
+        run: npm run projectTest
+  building_project:
+    needs: start_project
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm ci --force
+      - name: Install Playwright
+        run: npx playwright install --with-deps
+      - name: Run test
+        run: npm run lambdaTest
