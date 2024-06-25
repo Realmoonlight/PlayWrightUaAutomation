@@ -13,7 +13,6 @@
     "lambdaTest": "npx playwright test lambdatest",
     "networkTest": "npx playwright test network"
   },
-  
   "dependencies": {
     "@angular/animations": "^14.2.12",
     "@angular/cdk": "12.1.0",
