@@ -9,8 +9,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "dropDown": "npx playwright test dropDown.spec.ts"
-  },
+    "dropDown": "npx playwright test dropDown.spec.ts",
+    "lambdaTest": "npx playwright test lambdatest"  },
   "dependencies": {
     "@angular/animations": "^14.2.12",
     "@angular/cdk": "12.1.0",
