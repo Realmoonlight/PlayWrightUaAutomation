@@ -14,7 +14,7 @@
     "networkTest": "npx playwright test network",
     "fixturesTest": "npx playwright test fixtures",
     "demoQATest": "npx playwright test demoQA",
-    "prejectTest": "npx playwright test project"
+    "projectTest": "npx playwright test project"
   },
   "dependencies": {
     "@angular/animations": "^14.2.12",
