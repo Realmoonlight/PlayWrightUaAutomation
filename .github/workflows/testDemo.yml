@@ -41,7 +41,7 @@ jobs:
         with:
           node-version: "18"
       - name: Install dependencies
-        run: npm i --force
+        run: npm i --force   //ci instal package-lock.json
       - name: Install Playwright
         run: npx playwright install --with-deps
       - name: Wait for localhost
