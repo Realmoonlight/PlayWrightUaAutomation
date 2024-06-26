@@ -39,7 +39,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: "14"
+          node-version: "18"
       - name: Install dependencies
         run: npm i --force
       - name: Install Playwright
@@ -47,10 +47,10 @@ jobs:
       - name: Wait for localhost
         run: |
          npm run start &
-         timeout 300 sh -c 'until curl --output /dev/null --silent --head --fail http://localhost:4200; do
+         until $(curl --output /dev/null --silent --head --fail http://localhost:4200); do
           echo "Waiting for localhost to be available..."
           sleep 5
-         done'
+         done
       - name: Run tests
           - 4200:4200
         run: npm run projectTest
